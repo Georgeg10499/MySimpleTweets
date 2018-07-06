@@ -6,11 +6,17 @@
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
+        <!--<item name="android:textColor">@color/colorAccent</item>-->
+        <!--<item name="android:textStyle">bold</item>-->
+        <!--<item name="android:textSize">18sp</item>-->
     </style>
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <!--<item name="android:background">#1dcaff</item>-->
+        <!--<item name="android:textColor">@color/colorBlue</item>-->
+        <!--<item name="android:actionBarStyle"></item>-->
     </style>
 
 </resources>

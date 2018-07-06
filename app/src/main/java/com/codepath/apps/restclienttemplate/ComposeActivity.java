@@ -1,6 +1,8 @@
 package com.codepath.apps.restclienttemplate;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -8,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -23,6 +26,7 @@ public class ComposeActivity extends AppCompatActivity {
     EditText etCompose;
     Tweet tweet;
     TwitterClient client;
+    TextView tvCounter;
 
 
     @Override
@@ -30,9 +34,15 @@ public class ComposeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compose);
 
+        getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.logo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1DA1F2")));
+
         client = TwitterApp.getRestClient(this);
         etCompose = (EditText) findViewById(R.id.etCompose);
-
+        //tvCounter = (TextView) findViewById(R.id.tvCounter);
     }
 
     @Override
@@ -40,6 +50,13 @@ public class ComposeActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.compose_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
+//    @Override
+//    public boolean onKeyUp(int keyCode, KeyEvent event) {
+//        String num = Integer.toString(140 - etCompose.getText().toString().length());
+//        //tvCounter.setText(num);
+//        return super.onKeyDown(keyCode, event);
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

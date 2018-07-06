@@ -53,6 +53,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         Tweet tweet = tweets.get(position);
         // populate the view according to the data
         holder.tvUsername.setText(tweet.user.name);
+        holder.tvScreenName.setText("@" + tweet.user.screenName);
         holder.tvBody.setText(tweet.body);
         holder.tvTimestamp.setText(getRelativeTimeAgo(tweet.createdAt));
 
@@ -61,24 +62,13 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
                 .into(holder.ivProfileImage);
     }
 
-    // Clean all elements of the recycler
-    public void clear() {
-        tweets.clear();
-        notifyDataSetChanged();
-    }
-
-    // Add a list of items -- change to type used
-    public void addAll(List<Tweet> list) {
-        tweets.addAll(list);
-        notifyDataSetChanged();
-    }
-
     //create ViewHolder class
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView ivProfileImage;
         public TextView tvUsername;
         public TextView tvBody;
         public TextView tvTimestamp;
+        public TextView tvScreenName;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -89,6 +79,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             tvUsername = (TextView) itemView.findViewById(R.id.tvUserName);
             tvBody = (TextView) itemView.findViewById(R.id.tvBody);
             tvTimestamp = (TextView) itemView.findViewById(R.id.tvTimestamp);
+            tvScreenName = (TextView) itemView.findViewById(R.id.tvSreenName);
         }
     }
 
@@ -107,5 +98,17 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         }
 
         return relativeDate;
+    }
+
+    // Clean all elements of the recycler
+    public void clear() {
+        tweets.clear();
+        notifyDataSetChanged();
+    }
+
+    // Add a list of items -- change to type used
+    public void addAll(List<Tweet> list) {
+        tweets.addAll(list);
+        notifyDataSetChanged();
     }
 }
