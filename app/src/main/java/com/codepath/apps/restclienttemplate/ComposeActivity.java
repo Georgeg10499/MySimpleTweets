@@ -10,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -26,7 +26,7 @@ public class ComposeActivity extends AppCompatActivity {
     EditText etCompose;
     Tweet tweet;
     TwitterClient client;
-    TextView tvCounter;
+    ProgressBar progressBar;
 
 
     @Override
@@ -42,7 +42,7 @@ public class ComposeActivity extends AppCompatActivity {
 
         client = TwitterApp.getRestClient(this);
         etCompose = (EditText) findViewById(R.id.etCompose);
-        //tvCounter = (TextView) findViewById(R.id.tvCounter);
+        progressBar = (ProgressBar) findViewById(R.id.pbLoading);
     }
 
     @Override
@@ -77,10 +77,12 @@ public class ComposeActivity extends AppCompatActivity {
     }
 
     public void composeTweet(View view) {
+        progressBar.setVisibility(ProgressBar.VISIBLE);
         client.sendTweet(etCompose.getText().toString(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
+                    progressBar.setVisibility(ProgressBar.INVISIBLE);
                     tweet = Tweet.fromJSON(response);
 
                     Intent data = new Intent();
@@ -96,16 +98,19 @@ public class ComposeActivity extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 Log.d("Send Text", errorResponse.toString());
+                progressBar.setVisibility(ProgressBar.INVISIBLE);
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
                 Log.d("Send Text", errorResponse.toString());
+                progressBar.setVisibility(ProgressBar.INVISIBLE);
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 Log.d("Send Text", responseString);
+                progressBar.setVisibility(ProgressBar.INVISIBLE);
             }
         });
 
