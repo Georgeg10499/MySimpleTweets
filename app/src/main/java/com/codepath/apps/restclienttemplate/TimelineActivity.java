@@ -45,6 +45,7 @@ public class TimelineActivity extends AppCompatActivity {
         setContentView(R.layout.activity_timeline);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.logo);
+        getSupportActionBar().setIcon(R.drawable.logo);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#1DA1F2")));
         getSupportActionBar().setDisplayShowTitleEnabled(false);

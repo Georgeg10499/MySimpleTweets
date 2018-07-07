@@ -14,5 +14,5 @@
         app:showAsAction="always"
         app:actionLayout="@layout/action_view_progress" />
 
-    
+
 </menu>

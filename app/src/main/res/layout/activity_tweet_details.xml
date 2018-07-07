@@ -26,6 +26,7 @@
         android:layout_toEndOf="@+id/ivProfileImage"
         android:textStyle="bold"
         android:textColor="@android:color/black"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:text="TextView" />
 
     <TextView
@@ -35,6 +36,7 @@
         android:layout_below="@+id/tvUserName"
         android:layout_marginLeft="5dp"
         android:layout_toEndOf="@+id/ivProfileImage"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:text="TextView" />
 
     <TextView
@@ -47,5 +49,43 @@
         android:layout_marginRight="5dp"
         android:layout_marginTop="10dp"
         android:text="TextView"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:textColor="@android:color/black" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/imageView7"
+        android:layout_marginEnd="152dp"
+        app:srcCompat="@drawable/ic_vector_retweet" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/imageView9"
+        android:layout_marginStart="133dp"
+        app:srcCompat="@drawable/ic_vector_heart_stroke" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/ivProfileImage"
+        android:layout_below="@+id/tvBody"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/ic_vector_compose_dm" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/imageView4"
+        android:layout_marginEnd="68dp"
+        app:srcCompat="@drawable/ic_vector_person_stroke" />
+
 </RelativeLayout>
